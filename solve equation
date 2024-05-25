@@ -1,0 +1,12 @@
+% Define the third-order differential equation
+syms u(x)
+ode = diff(u,x,3) == u;
+
+% Define the initial conditions
+cond1 = u(0) == 1;
+cond2 = diff(u,x)(0) == -1;
+cond3 = diff(u,x,2)(0) == pi;
+conds = [cond1 cond2 cond3];
+
+% Solve the differential equation with the given initial conditions
+sol = dsolve(ode, conds);
